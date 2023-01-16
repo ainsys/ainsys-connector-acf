@@ -2,6 +2,7 @@
 
 namespace Ainsys\Connector\ACF;
 
+use Ainsys\Connector\Master\DI_Container;
 use Ainsys\Connector\Master\Hooked;
 use Ainsys\Connector\Master\Plugin_Common;
 
@@ -9,9 +10,15 @@ class Plugin implements Hooked {
 
 	use Plugin_Common;
 
+	/**
+	 * @var \Ainsys\Connector\Master\DI_Container
+	 */
+	protected DI_Container $di_container;
+
 
 	public function __construct() {
 		$this->init_plugin_metadata();
+		$this->di_container = DI_Container::get_instance();
 
 	}
 
